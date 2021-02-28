@@ -25,7 +25,7 @@ class CardSwiper extends StatelessWidget {
                 fit: BoxFit.cover),
           );
         },
-        itemCount: 3,
+        itemCount: peliculas.length,
         itemWidth: _screenSize.width * 0.7,
         itemHeight: _screenSize.height * 0.5,
         layout: SwiperLayout.STACK,
