@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             _swiperTarjetas(),
             _footer(context),
