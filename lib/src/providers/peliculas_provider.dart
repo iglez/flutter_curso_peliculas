@@ -1,10 +1,11 @@
 import 'package:peliculas/src/models/pelicula_model.dart';
 
+import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class PeliculasProvider {
   String _apiKey = '99568c3e97fec3b5e291a3ab8ab92f64';
-  String _url = 'api.themoviedb.org/';
+  String _url = 'api.themoviedb.org';
   String _language = 'es-ES';
 
   Future<List<Pelicula>> getEnCines() async {
@@ -14,7 +15,14 @@ class PeliculasProvider {
 
     // https://pub.dev/packages/http
 
-    final respuesta = await http.get(url);
-    
+    final resp = await http.get(url);
+
+    // validar error code
+
+    final decodedData = json.decode(resp.body);
+    print(decodedData);
+    print(decodedData['results']);
+
+    return [];
   }
 }
