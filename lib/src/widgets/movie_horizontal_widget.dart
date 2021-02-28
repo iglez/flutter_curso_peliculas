@@ -13,7 +13,7 @@ class MovieHorizontal extends StatelessWidget {
     final _sceenSize = MediaQuery.of(context).size;
 
     return Container(
-      height: _sceenSize.height * 0.2,
+      height: _sceenSize.height * 0.3,
       child: PageView(
         children: _tarjetas(),
       ),
