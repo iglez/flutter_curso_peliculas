@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
           FutureBuilder(
             future: peliculasProvider.getPopulares(),
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
-              snapshot.data.forEach((element) {
+              snapshot.data?.forEach((element) {
                 print(element.title);
               });
 
