@@ -53,7 +53,16 @@ class _HomePageState extends State<HomePage> {
       width: double.infinity,
       child: Column(
         children: [
-          Text('Populares', style: Theme.of(context).textTheme.subtitle1)
+          Text('Populares', style: Theme.of(context).textTheme.subtitle1),
+          FutureBuilder(
+            future: peliculasProvider.getPopulares(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              
+              print(snapshot.data);
+
+              return Container();
+            },
+          ),
         ],
       ),
     );

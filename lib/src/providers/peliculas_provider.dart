@@ -24,4 +24,21 @@ class PeliculasProvider {
     final peliculas = Peliculas.fromJsonList(decodedData['results']);
     return peliculas.items;
   }
+
+  Future<List<Pelicula>> getPopulares() async {
+    // https://api.themoviedb.org/3/movie/now_playing?api_key=99568c3e97fec3b5e291a3ab8ab92f64&language=en-US&page=1
+    final url = Uri.https(_url, '3/movie/popular',
+        {'api_key': _apiKey, 'language': _language});
+
+    // https://pub.dev/packages/http
+
+    final resp = await http.get(url);
+
+    // validar error code
+
+    final decodedData = json.decode(resp.body);
+
+    final peliculas = Peliculas.fromJsonList(decodedData['results']);
+    return peliculas.items;
+  }
 }
