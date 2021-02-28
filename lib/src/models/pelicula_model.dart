@@ -19,6 +19,8 @@ class Pelicula {
   double voteAverage;
   int voteCount;
 
+  // tip multicursor
+  // alt + ctrl
   Pelicula({
     this.adult,
     this.backdropPath,
@@ -35,4 +37,21 @@ class Pelicula {
     this.voteAverage,
     this.voteCount,
   });
+
+  Pelicula.fromJsonMap(Map<String, dynamic> json){
+    adult             = json['adult'];
+    backdropPath      = json['backdrop_path'];
+    genreIds          = json['genre_ids'].cast<int>();
+    id                = json['id'];
+    originalLanguage  = json['original_language'];
+    originalTitle     = json['original_title'];
+    overview          = json['overview'];
+    popularity        = json['popularity'] / 1;
+    posterPath        = json['poster_path'];
+    releaseDate       = json['release_date'];
+    title             = json['title'];
+    video             = json['video'];
+    voteAverage       = json['vote_average'] / 1;
+    voteCount         = json['vote_count'];
+  }
 }
