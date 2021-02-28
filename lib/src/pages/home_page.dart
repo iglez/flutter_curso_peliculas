@@ -11,9 +11,22 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Text('Hola Mundo'),
+      appBar: AppBar(
+        title: Text('Peliculas'),
+        backgroundColor: Colors.indigoAccent,
+        actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            _swiperTarjetas(),
+          ],
+        ),
       ),
     );
+  }
+
+  Widget _swiperTarjetas() {
+    return Container();
   }
 }
