@@ -65,7 +65,9 @@ class _HomePageState extends State<HomePage> {
             future: peliculasProvider.getPopulares(),
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
               if (!snapshot.hasData) {
-                return CircularProgressIndicator();
+                return Center(
+                  child: CircularProgressIndicator()
+                );
               }
               return MovieHorizontal(peliculas: snapshot.data);
             },
