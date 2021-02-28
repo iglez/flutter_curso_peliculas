@@ -30,14 +30,18 @@ class _HomePageState extends State<HomePage> {
 
   Widget _swiperTarjetas() {
     // https://pub.dev/packages/flutter_swiper
-    return Swiper(
-        itemBuilder: (BuildContext context, int index){
-          return Image.network("http://via.placeholder.com/350x150",
-            fit: BoxFit.fill);
-        },
-        itemCount: 3,
-        pagination: SwiperPagination(),
-        control: SwiperControl(),
-      );
+    return Container(
+      width: double.infinity,
+      height: 300.0,
+      child: Swiper(
+          itemBuilder: (BuildContext context, int index){
+            return Image.network("http://via.placeholder.com/350x150",
+              fit: BoxFit.fill);
+          },
+          itemCount: 3,
+          pagination: SwiperPagination(),
+          control: SwiperControl(),
+        ),
+    );
   }
 }
