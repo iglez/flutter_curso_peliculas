@@ -20,8 +20,10 @@ class PeliculasProvider {
     // validar error code
 
     final decodedData = json.decode(resp.body);
-    print(decodedData);
-    print(decodedData['results']);
+
+    final peliculas = Peliculas.fromJsonList(decodedData['results']);
+
+    print(peliculas.items[0].originalTitle);
 
     return [];
   }
