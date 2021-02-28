@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget _swiperTarjetas() {
     // https://pub.dev/packages/flutter_swiper
     return Container(
+      padding: EdgeInsets.only(top: 10.0),
       width: double.infinity,
       height: 300.0,
       child: Swiper(
@@ -41,6 +42,9 @@ class _HomePageState extends State<HomePage> {
           itemCount: 3,
           pagination: SwiperPagination(),
           control: SwiperControl(),
+          itemWidth: 200.0,
+          itemHeight: 200.0,
+          layout: SwiperLayout.STACK,
         ),
     );
   }
