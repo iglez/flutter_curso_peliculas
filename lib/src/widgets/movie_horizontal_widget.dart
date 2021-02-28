@@ -10,6 +10,31 @@ class MovieHorizontal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final _sceenSize = MediaQuery.of(context).size;
+
+    return Container(
+      height: _sceenSize.height * 0.2,
+      child: PageView(
+        children: _tarjetas(),
+      ),
+    );
+  }
+
+  List<Widget> _tarjetas() {
+    return peliculas.map((pelicula) {
+      return Container(
+        margin: EdgeInsets.only(right: 5.0),
+        child: Column(
+          children: [
+            FadeInImage(
+              placeholder: AssetImage('assets/img/no-image.jpg'),
+              image: NetworkImage(pelicula.getPosterImg()),
+              fit: BoxFit.cover,
+              height: 160.0,
+            )
+          ]
+        ),
+      );
+    }).toList();
   }
 }
