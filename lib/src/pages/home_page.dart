@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             _swiperTarjetas(),
+            _footer(),
           ],
         ),
       ),
@@ -37,14 +38,23 @@ class _HomePageState extends State<HomePage> {
         if (!snapshot.hasData) {
           return Container(
             height: 400.0,
-            child: Center(
-              child: CircularProgressIndicator()
-            ),
+            child: Center(child: CircularProgressIndicator()),
           );
         }
 
         return CardSwiper(peliculas: snapshot.data);
       },
+    );
+  }
+
+  Widget _footer() {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: [
+          Text('Populares')
+        ],
+      ),
     );
   }
 }
