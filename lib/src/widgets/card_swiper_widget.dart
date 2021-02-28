@@ -19,12 +19,13 @@ class CardSwiper extends StatelessWidget {
       height: _screenSize.height * 0.5,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
-          return Image.network("http://via.placeholder.com/350x150",
-              fit: BoxFit.fill);
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image.network("http://via.placeholder.com/350x150",
+                fit: BoxFit.cover),
+          );
         },
         itemCount: 3,
-        pagination: SwiperPagination(),
-        control: SwiperControl(),
         itemWidth: _screenSize.width * 0.7,
         itemHeight: _screenSize.height * 0.5,
         layout: SwiperLayout.STACK,
