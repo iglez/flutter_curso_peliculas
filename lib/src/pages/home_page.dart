@@ -10,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  PeliculasProvider peliculasProvider = PeliculasProvider();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,11 +31,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _swiperTarjetas() {
-    // https://pub.dev/packages/flutter_swiper
+    return FutureBuilder(
+      future: peliculasProvider.getEnCines(),
+      builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
+        if (!snapshot.hasData) {
+          return CircularProgressIndicator();
+        }
 
-    PeliculasProvider peliculasProvider = PeliculasProvider();
-    peliculasProvider.getEnCines();
-
-    return CardSwiper(peliculas: [1, 2, 3, 4, 5]);
+        return CardSwiper(peliculas: snapshot.data);
+      },
+    );
   }
 }
