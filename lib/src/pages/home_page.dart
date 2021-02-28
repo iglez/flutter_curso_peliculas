@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _swiperTarjetas() {
+    // https://pub.dev/packages/flutter_swiper
     return Container();
   }
 }
