@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             _swiperTarjetas(),
-            _footer(),
+            _footer(context),
           ],
         ),
       ),
@@ -47,12 +47,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _footer() {
+  Widget _footer(BuildContext context) {
     return Container(
       width: double.infinity,
       child: Column(
         children: [
-          Text('Populares')
+          Text('Populares', style: Theme.of(context).textTheme.subtitle1)
         ],
       ),
     );
