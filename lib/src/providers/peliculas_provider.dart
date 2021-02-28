@@ -7,7 +7,11 @@ class PeliculasProvider {
 
   Future<List<Pelicula>> getEnCines() async {
     // https://api.themoviedb.org/3/movie/now_playing?api_key=99568c3e97fec3b5e291a3ab8ab92f64&language=en-US&page=1
+    final url = Uri.https(_url, '3/movie/now_playing', {
+      'api_key' : _apiKey,
+      'language' : _language
+    });
 
+    
   }
-
 }
