@@ -56,9 +56,10 @@ class _HomePageState extends State<HomePage> {
           Text('Populares', style: Theme.of(context).textTheme.subtitle1),
           FutureBuilder(
             future: peliculasProvider.getPopulares(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              
-              print(snapshot.data);
+            builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+              snapshot.data.forEach((element) {
+                print(element.title);
+              });
 
               return Container();
             },
