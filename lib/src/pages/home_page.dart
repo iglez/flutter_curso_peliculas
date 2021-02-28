@@ -35,7 +35,12 @@ class _HomePageState extends State<HomePage> {
       future: peliculasProvider.getEnCines(),
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
         if (!snapshot.hasData) {
-          return CircularProgressIndicator();
+          return Container(
+            height: 400.0,
+            child: Center(
+              child: CircularProgressIndicator()
+            ),
+          );
         }
 
         return CardSwiper(peliculas: snapshot.data);
