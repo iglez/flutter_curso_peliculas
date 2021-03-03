@@ -5,6 +5,9 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 class CardSwiper extends StatelessWidget {
   // const CardSwiper({Key key}) : super(key: key);
 
+  // https://api.themoviedb.org/3/movie/popular?api_key=99568c3e97fec3b5e291a3ab8ab92f64&language=en-US&page=1
+  // https://image.tmdb.org/t/p/w500/uwjaCH7PiWrkz7oWJ4fcL3xGrb0.jpg
+
   final List<dynamic> peliculas;
 
   CardSwiper({@required this.peliculas});
