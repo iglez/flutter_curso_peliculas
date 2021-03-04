@@ -5,8 +5,9 @@ class MovieHorizontal extends StatelessWidget {
   // const MovieHorizontal({Key key}) : super(key: key);
 
   final List<Pelicula> peliculas;
+  final Function siguientePagina;
 
-  MovieHorizontal({@required this.peliculas});
+  MovieHorizontal({@required this.peliculas, @required this.siguientePagina});
 
   final _pageController = PageController(initialPage: 1, viewportFraction: 0.3);
 
@@ -17,7 +18,7 @@ class MovieHorizontal extends StatelessWidget {
     _pageController.addListener(() {
       if (_pageController.position.pixels >=
           _pageController.position.maxScrollExtent - 200) {
-        print('Cargar siguientes peliculas...');
+        siguientePagina();
       }
     });
 

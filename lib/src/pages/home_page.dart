@@ -68,7 +68,9 @@ class _HomePageState extends State<HomePage> {
               if (!snapshot.hasData) {
                 return Center(child: CircularProgressIndicator());
               }
-              return MovieHorizontal(peliculas: snapshot.data);
+              return MovieHorizontal(
+                peliculas: snapshot.data,
+                siguientePagina: peliculasProvider.getPopulares);
             },
           ),
         ],
