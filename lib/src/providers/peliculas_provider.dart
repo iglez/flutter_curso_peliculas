@@ -17,6 +17,7 @@ class PeliculasProvider {
   // introducir peliculas
   Function(List<Pelicula>) get popularesSink => _popularesStream.sink.add;
 
+  // obtener datos
   Stream<List<Pelicula>> get popularesStream => _popularesStream.stream;
 
   void disposeStreams() {
@@ -54,6 +55,11 @@ class PeliculasProvider {
 
     // https://pub.dev/packages/http
 
-    return await _procesarRespuesta(url);
+    final respuesta = await _procesarRespuesta(url);
+
+    _populares.addAll(respuesta);
+    popularesSink(_populares);
+
+    return respuesta;
   }
 }
