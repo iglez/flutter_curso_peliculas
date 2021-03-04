@@ -7,6 +7,7 @@ class PeliculasProvider {
   String _apiKey = '99568c3e97fec3b5e291a3ab8ab92f64';
   String _url = 'api.themoviedb.org';
   String _language = 'es-ES';
+  int _popularesPage = 0;
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
     final resp = await http.get(url);
@@ -28,9 +29,11 @@ class PeliculasProvider {
   }
 
   Future<List<Pelicula>> getPopulares() async {
+    _popularesPage++;
+
     // https://api.themoviedb.org/3/movie/now_playing?api_key=99568c3e97fec3b5e291a3ab8ab92f64&language=en-US&page=1
     final url = Uri.https(
-        _url, '3/movie/popular', {'api_key': _apiKey, 'language': _language});
+        _url, '3/movie/popular', {'api_key': _apiKey, 'language': _language, 'page': _popularesPage.toString()});
 
     // https://pub.dev/packages/http
 
