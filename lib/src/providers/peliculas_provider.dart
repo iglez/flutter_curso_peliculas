@@ -12,16 +12,16 @@ class PeliculasProvider {
 
   List<Pelicula> _populares = List();
 
-  final _popularesStream = StreamController<List<Pelicula>>.broadcast();
+  final _popularesStreamController = StreamController<List<Pelicula>>.broadcast();
 
   // introducir peliculas
-  Function(List<Pelicula>) get popularesSink => _popularesStream.sink.add;
+  Function(List<Pelicula>) get popularesSink => _popularesStreamController.sink.add;
 
   // obtener datos
-  Stream<List<Pelicula>> get popularesStream => _popularesStream.stream;
+  Stream<List<Pelicula>> get popularesStream => _popularesStreamController.stream;
 
   void disposeStreams() {
-    _popularesStream?.close();
+    _popularesStreamController?.close();
   }
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
