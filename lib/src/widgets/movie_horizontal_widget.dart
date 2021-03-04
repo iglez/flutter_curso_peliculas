@@ -8,13 +8,18 @@ class MovieHorizontal extends StatelessWidget {
 
   MovieHorizontal({@required this.peliculas});
 
-  final _pageController = PageController(
-    initialPage: 1,
-    viewportFraction: 0.3);
+  final _pageController = PageController(initialPage: 1, viewportFraction: 0.3);
 
   @override
   Widget build(BuildContext context) {
     final _sceenSize = MediaQuery.of(context).size;
+
+    _pageController.addListener(() {
+      if (_pageController.position.pixels >=
+          _pageController.position.maxScrollExtent - 200) {
+        print('Cargar siguientes peliculas...');
+      }
+    });
 
     return Container(
       height: _sceenSize.height * 0.3,
