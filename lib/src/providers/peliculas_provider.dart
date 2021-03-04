@@ -14,6 +14,11 @@ class PeliculasProvider {
 
   final _popularesStream = StreamController<List<Pelicula>>.broadcast();
 
+  // introducir peliculas
+  Function(List<Pelicula>) get popularesSink => _popularesStream.sink.add;
+
+  Stream<List<Pelicula>> get popularesStream => _popularesStream.stream;
+
   void disposeStreams() {
     _popularesStream?.close();
   }
