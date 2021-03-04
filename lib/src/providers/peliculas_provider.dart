@@ -12,7 +12,7 @@ class PeliculasProvider {
 
   List<Pelicula> _populares = List();
 
-  final _popularesStream = StreamController();
+  final _popularesStream = StreamController<List<Pelicula>>.broadcast();
 
   void disposeStreams() {
     _popularesStream?.close();
