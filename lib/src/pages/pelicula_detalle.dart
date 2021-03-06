@@ -48,9 +48,22 @@ class PeliculaDetalle extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
         children: [
-          Image(
-            image: NetworkImage(pelicula.getPosterImg()),
-            height: 150.0,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image(
+              image: NetworkImage(pelicula.getPosterImg()),
+              height: 150.0,
+            ),
+          ),
+          SizedBox(width: 20.0),
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(pelicula.originalTitle),
+                Text(pelicula.title),
+              ]
+            )
           )
         ]
       ),
