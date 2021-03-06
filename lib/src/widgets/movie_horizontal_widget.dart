@@ -63,7 +63,7 @@ class MovieHorizontal extends StatelessWidget {
     return GestureDetector(
       child: tarjeta,
       onTap: () {
-        print('tap !');
+        print('Pelicula ${pelicula.title}');
       },
     );
   }
