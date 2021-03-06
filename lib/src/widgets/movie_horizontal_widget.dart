@@ -64,7 +64,7 @@ class MovieHorizontal extends StatelessWidget {
       child: tarjeta,
       onTap: () {
         // print('Pelicula ${pelicula.title}');
-        Navigator.pushNamed(context, 'detalle');
+        Navigator.pushNamed(context, 'detalle', arguments: pelicula);
       },
     );
   }
