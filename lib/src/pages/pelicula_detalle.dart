@@ -17,6 +17,10 @@ class PeliculaDetalle extends StatelessWidget {
             SizedBox(height: 10.0),
             _posterTitulo(context, pelicula),
             _description(pelicula),
+            _description(pelicula),
+            _description(pelicula),
+            _description(pelicula),
+            _description(pelicula),
           ])),
         ],
       ),
@@ -80,7 +84,11 @@ class PeliculaDetalle extends StatelessWidget {
 
   Widget _description(Pelicula pelicula) {
     return Container(
-      child: Text(pelicula.overview),
+      padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+      child: Text(
+        pelicula.overview,
+        textAlign: TextAlign.justify,
+      ),
     );
   }
 }
