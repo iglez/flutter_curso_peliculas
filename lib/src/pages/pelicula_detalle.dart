@@ -29,7 +29,12 @@ class PeliculaDetalle extends StatelessWidget {
         title: Text(pelicula.title,
           style: TextStyle(color: Colors.white, fontSize: 16.0)
           ),
-        
+        background: FadeInImage(
+          image: NetworkImage(pelicula.getbackgroundImg()),
+          placeholder: AssetImage('assets/img/loading.gif'),
+          fadeOutDuration: Duration(milliseconds: 150),
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
