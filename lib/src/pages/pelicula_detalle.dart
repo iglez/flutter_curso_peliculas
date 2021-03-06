@@ -15,7 +15,7 @@ class PeliculaDetalle extends StatelessWidget {
           SliverList(
               delegate: SliverChildListDelegate([
             SizedBox(height: 10.0),
-            _posterTitulo(pelicula),
+            _posterTitulo(context, pelicula),
           ])),
         ],
       ),
@@ -43,7 +43,7 @@ class PeliculaDetalle extends StatelessWidget {
     );
   }
 
-  Widget _posterTitulo(Pelicula pelicula) {
+  Widget _posterTitulo(BuildContext context, Pelicula pelicula) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
@@ -60,8 +60,9 @@ class PeliculaDetalle extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(pelicula.originalTitle),
-                Text(pelicula.title),
+                Text(pelicula.title, style: Theme.of(context).textTheme.headline6, overflow: TextOverflow.ellipsis,),
+                Text(pelicula.originalTitle, style: Theme.of(context).textTheme.headline6, overflow: TextOverflow.ellipsis)),
+                
               ]
             )
           )
