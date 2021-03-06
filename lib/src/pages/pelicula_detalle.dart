@@ -61,8 +61,13 @@ class PeliculaDetalle extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(pelicula.title, style: Theme.of(context).textTheme.headline6, overflow: TextOverflow.ellipsis,),
-                Text(pelicula.originalTitle, style: Theme.of(context).textTheme.headline6, overflow: TextOverflow.ellipsis)),
-                
+                Text(pelicula.originalTitle, style: Theme.of(context).textTheme.subtitle2, overflow: TextOverflow.ellipsis),
+                Row(
+                  children: [
+                    Icon(Icons.star_border),
+                    Text(pelicula.voteAverage.toString(), style: Theme.of(context).textTheme.subtitle2, overflow: TextOverflow.ellipsis)
+                  ]
+                ),
               ]
             )
           )
