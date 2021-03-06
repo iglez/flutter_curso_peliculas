@@ -9,9 +9,15 @@ class PeliculaDetalle extends StatelessWidget {
     final Pelicula pelicula = ModalRoute.of(context).settings.arguments;
 
     return Scaffold(
-      body: Center(
-        child: Text('Peliclula ${pelicula.title}'),
+      body: CustomScrollView(
+        slivers: [
+          _crearAppBar(pelicula),
+        ],
       ),
     );
+  }
+
+  Widget _crearAppBar(Pelicula pelicula) {
+    return Container();
   }
 }
