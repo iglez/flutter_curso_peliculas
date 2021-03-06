@@ -12,6 +12,11 @@ class PeliculaDetalle extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           _crearAppBar(pelicula),
+          SliverList(
+              delegate: SliverChildListDelegate([
+            SizedBox(height: 10.0),
+            _posterTitulo(pelicula),
+          ])),
         ],
       ),
     );
@@ -24,17 +29,30 @@ class PeliculaDetalle extends StatelessWidget {
       expandedHeight: 200.0,
       floating: false,
       pinned: true,
-      flexibleSpace: FlexibleSpaceBar (
+      flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         title: Text(pelicula.title,
-          style: TextStyle(color: Colors.white, fontSize: 16.0)
-          ),
+            style: TextStyle(color: Colors.white, fontSize: 16.0)),
         background: FadeInImage(
           image: NetworkImage(pelicula.getbackgroundImg()),
           placeholder: AssetImage('assets/img/loading.gif'),
           fadeOutDuration: Duration(milliseconds: 150),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+
+  Widget _posterTitulo(Pelicula pelicula) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      child: Row(
+        children: [
+          Image(
+            image: NetworkImage(pelicula.getPosterImg()),
+            height: 150.0,
+          )
+        ]
       ),
     );
   }
