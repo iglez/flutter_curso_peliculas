@@ -21,8 +21,6 @@ class PeliculaDetalle extends StatelessWidget {
             _description(pelicula),
             _description(pelicula),
             _description(pelicula),
-            _description(pelicula),
-            _description(pelicula),
             _crearCasting(pelicula),
           ])),
         ],
@@ -136,6 +134,9 @@ class PeliculaDetalle extends StatelessWidget {
               height: 150.0,
               fit: BoxFit.cover,
             ),
+          ),
+          Text(actor.name,
+            overflow: TextOverflow.ellipsis,
           ),
         ]
       )
