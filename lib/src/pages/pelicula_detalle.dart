@@ -128,9 +128,14 @@ class PeliculaDetalle extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          FadeInImage(
-            placeholder: AssetImage('assets/img/no-image.jpg'), 
-            image: NetworkImage(actor.getPhoto()),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: FadeInImage(
+              placeholder: AssetImage('assets/img/no-image.jpg'), 
+              image: NetworkImage(actor.getPhoto()),
+              height: 150.0,
+              fit: BoxFit.cover,
+            ),
           ),
         ]
       )
