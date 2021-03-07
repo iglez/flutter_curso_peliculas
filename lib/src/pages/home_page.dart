@@ -21,7 +21,16 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text('Peliculas'),
         backgroundColor: Colors.indigoAccent,
-        actions: [IconButton(icon: Icon(Icons.search), onPressed: () {})],
+        actions: [
+          IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                showSearch(
+                  context: context, 
+                  delegate: null
+                );
+              })
+        ],
       ),
       body: Container(
         child: Column(
@@ -69,8 +78,8 @@ class _HomePageState extends State<HomePage> {
                 return Center(child: CircularProgressIndicator());
               }
               return MovieHorizontal(
-                peliculas: snapshot.data,
-                siguientePagina: peliculasProvider.getPopulares);
+                  peliculas: snapshot.data,
+                  siguientePagina: peliculasProvider.getPopulares);
             },
           ),
         ],
