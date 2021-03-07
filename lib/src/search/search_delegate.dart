@@ -83,6 +83,11 @@ class DataSearch extends SearchDelegate {
               ),
               title: Text(peli.title),
               subtitle: Text(peli.originalTitle),
+              onTap: () {
+                close(context, null);
+                peli.uniqueId = '';
+                Navigator.pushNamed(context, 'detalle', arguments: peli);
+              },
             );
           }).toList(),
         );
