@@ -33,4 +33,29 @@ class Actor {
     this.department,
     this.job,
   });
+
+  Actor.fromJsonMap(Map<String, dynamic> jsonMap) {
+    adult = jsonMap['adult'];
+    gender = jsonMap['gender'];
+    id = jsonMap['id'];
+    knownForDepartment = jsonMap['known_for_department'];
+    name = jsonMap['name'];
+    originalName = jsonMap['original_name'];
+    popularity = jsonMap['popularity'];
+    profilePath = jsonMap['profilePath'];
+    castId = jsonMap['cast_id'];
+    character = jsonMap['character'];
+    creditId = jsonMap['credit_id'];
+    order = jsonMap['order'];
+    department = jsonMap['department'];
+    job = jsonMap['job'];
+  }
+
+  getPhoto() {
+    if (profilePath == null) {
+      return 'https://www.speakingtigerbooks.com/wp-content/uploads/2018/07/no-avatar.jpg';
+    }
+
+    return 'https://image.tmdb.org/t/p/w500/$profilePath';
+  }
 }
