@@ -119,10 +119,21 @@ class PeliculaDetalle extends StatelessWidget {
           initialPage: 1,
         ),
         itemCount: actores.length,
-        itemBuilder: (context, i) {
-          return Text(actores[i].name);
-        }
+        itemBuilder: (context, i) => _actorTarjeta(actores[i]),
       ),
+    );
+  }
+
+  Widget _actorTarjeta(Actor actor){
+    return Container(
+      child: Column(
+        children: [
+          FadeInImage(
+            placeholder: AssetImage('assets/img/no-image.jpg'), 
+            image: NetworkImage(actor.getPhoto()),
+          ),
+        ]
+      )
     );
   }
 }
