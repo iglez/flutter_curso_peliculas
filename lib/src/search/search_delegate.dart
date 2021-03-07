@@ -8,7 +8,7 @@ class DataSearch extends SearchDelegate {
       IconButton(
           icon: Icon(Icons.clear),
           onPressed: () {
-            print('click action');
+            query = '';
           }),
     ];
   }
@@ -22,7 +22,7 @@ class DataSearch extends SearchDelegate {
           progress: transitionAnimation,
         ),
         onPressed: () {
-          print('leading icon press');
+          close(context, null);
         });
   }
 
