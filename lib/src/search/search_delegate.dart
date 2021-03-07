@@ -9,8 +9,8 @@ class DataSearch extends SearchDelegate {
     'Pelicula 5',
   ];
   final peliculasRecientes = [
-    'Pelicula popular 1',
-    'Pelicula popular 2',
+    'Pelicula 3',
+    'Pelicula 5',
   ];
 
   @override
@@ -47,12 +47,18 @@ class DataSearch extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     // las sugerencias cuando la presona escribe
+
+    final listaSugerida = (query.isEmpty)
+        ? peliculasRecientes
+        : peliculas.where(
+            (peli) => peli.toLowerCase().startsWith(query.toLowerCase())).toList();
+
     return ListView.builder(
-        itemCount: peliculasRecientes.length,
+        itemCount: listaSugerida.length,
         itemBuilder: (context, i) {
           return ListTile(
             leading: Icon(Icons.movie),
-            title: Text(peliculasRecientes[i]),
+            title: Text(listaSugerida[i]),
             onTap: () {},
           );
         });
