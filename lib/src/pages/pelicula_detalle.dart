@@ -113,14 +113,16 @@ class PeliculaDetalle extends StatelessWidget {
     return SizedBox(
       height: 200.0,
       child: PageView.builder(
-          controller: PageController(
-            viewportFraction: 0.3,
-            initialPage: 1,
-          ),
-          itemCount: actores.length,
-          itemBuilder: (context, i) {
-            return Text('Hola');
-          }),
+        pageSnapping: false,
+        controller: PageController(
+          viewportFraction: 0.3,
+          initialPage: 1,
+        ),
+        itemCount: actores.length,
+        itemBuilder: (context, i) {
+          return Text(actores[i].name);
+        }
+      ),
     );
   }
 }
