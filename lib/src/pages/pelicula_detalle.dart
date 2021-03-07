@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:peliculas/src/models/pelicula_model.dart';
+import 'package:peliculas/src/providers/peliculas_provider.dart';
 
 class PeliculaDetalle extends StatelessWidget {
   // const PeliculaDetalle({Key key}) : super(key: key);
@@ -21,6 +22,7 @@ class PeliculaDetalle extends StatelessWidget {
             _description(pelicula),
             _description(pelicula),
             _description(pelicula),
+            _crearCasting(pelicula),
           ])),
         ],
       ),
@@ -89,6 +91,16 @@ class PeliculaDetalle extends StatelessWidget {
         pelicula.overview,
         textAlign: TextAlign.justify,
       ),
+    );
+  }
+
+  Widget _crearCasting(Pelicula pelicula) {
+    final PeliculasProvider peliculaProvider = PeliculasProvider();
+    return FutureBuilder(
+      future: peliculaProvider.getCast(pelicula.id.toString()),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        return Container();
+      },
     );
   }
 }
