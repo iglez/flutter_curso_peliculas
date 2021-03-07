@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/src/models/actor_model.dart';
 import 'package:peliculas/src/models/pelicula_model.dart';
 import 'package:peliculas/src/providers/peliculas_provider.dart';
 
@@ -98,9 +99,28 @@ class PeliculaDetalle extends StatelessWidget {
     final PeliculasProvider peliculaProvider = PeliculasProvider();
     return FutureBuilder(
       future: peliculaProvider.getCast(pelicula.id.toString()),
-      builder: (BuildContext context, AsyncSnapshot snapshot) {
-        return Container();
+      builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+        if (!snapshot.hasData) {
+          return Center(child: CircularProgressIndicator());
+        }
+
+        return _crearActoresPageView(snapshot.data);
       },
+    );
+  }
+
+  Widget _crearActoresPageView(List<Actor> actores) {
+    return SizedBox(
+      height: 200.0,
+      child: PageView.builder(
+          controller: PageController(
+            viewportFraction: 0.3,
+            initialPage: 1,
+          ),
+          itemCount: actores.length,
+          itemBuilder: (context, i) {
+            return Text('Hola');
+          }),
     );
   }
 }
