@@ -22,8 +22,10 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             _swiperTarjetas(),
+            _footer(context),
           ],
         ),
       ),
@@ -37,14 +39,33 @@ class _HomePageState extends State<HomePage> {
         if (!snapshot.hasData) {
           return Container(
             height: 400.0,
-            child: Center(
-              child: CircularProgressIndicator()
-            ),
+            child: Center(child: CircularProgressIndicator()),
           );
         }
 
         return CardSwiper(peliculas: snapshot.data);
       },
+    );
+  }
+
+  Widget _footer(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        children: [
+          Text('Populares', style: Theme.of(context).textTheme.subtitle1),
+          FutureBuilder(
+            future: peliculasProvider.getPopulares(),
+            builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+              snapshot.data?.forEach((element) {
+                print(element.title);
+              });
+
+              return Container();
+            },
+          ),
+        ],
+      ),
     );
   }
 }
