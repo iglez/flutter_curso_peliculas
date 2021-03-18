@@ -77,4 +77,12 @@ class Pelicula {
 
     return 'https://image.tmdb.org/t/p/w500/$posterPath';
   }
+
+  getbackgroundImg() {
+    if (posterPath == null) {
+      return 'https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg';
+    }
+
+    return 'https://image.tmdb.org/t/p/w500/$backdropPath';
+  }
 }
