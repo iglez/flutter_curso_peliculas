@@ -56,7 +56,7 @@ class Actor {
     name = jsonMap['name'];
     originalName = jsonMap['original_name'];
     popularity = jsonMap['popularity'];
-    profilePath = jsonMap['profilePath'];
+    profilePath = jsonMap['profile_path'];
     castId = jsonMap['cast_id'];
     character = jsonMap['character'];
     creditId = jsonMap['credit_id'];
