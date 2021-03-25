@@ -1,3 +1,4 @@
+import 'package:peliculas/src/models/actor_model.dart';
 import 'package:peliculas/src/models/pelicula_model.dart';
 
 import 'dart:convert';
@@ -71,5 +72,21 @@ class PeliculasProvider {
 
     _cargando = false;
     return respuesta;
+  }
+
+  Future<List<Actor>> getCast(String peliculaID) async {
+    // https://api.themoviedb.org/3/movie/587807/credits?api_key=99568c3e97fec3b5e291a3ab8ab92f64&language=en-US
+    final url = Uri.https(_url, '3/movie/$peliculaID/credits', {
+      'api_key': _apiKey,
+      'language': _language,
+      'movie': peliculaID,
+    });
+
+    final resp = await http.get(url);
+    // validar error code
+    final decodedData = json.decode(resp.body);
+    final cast = Cast.fromJsonList(decodedData['cast']);
+
+    return cast.actores;
   }
 }
